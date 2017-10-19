@@ -12,7 +12,6 @@ random.seed(0)
 
 # create a new image
 orig = Image.open("ORIGINAL.png")
-orig = Image.open("ORIGINAL.png")
 orig = orig.convert("RGBA")
 orig_pix = orig.load()
 
@@ -29,10 +28,10 @@ for i in range(500):
 
     # get orig colors at the point we picked
     orig_colors = orig_pix[x,y]
-    
+
     # pick a random alpha
     alpha = random.randint(0,255-1)
-    color = (orig_colors[0],orig_colors[1],orig_colors[2],alpha)
+    color = (orig_colors[0],orig_colors[1],orig_colors[2],255)
 
     draw.ellipse((x,y,x+diam,y+diam), fill=color,
         outline=color)
