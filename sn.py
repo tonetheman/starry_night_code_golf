@@ -10,21 +10,12 @@ H = 320
 # do everything the same each time
 random.seed(0)
 
-# load up the pixels in a simple way to get RGB values
-class O:
-    def __init__(self):
-        orig = Image.open("ORIGINAL.png")
-        orig = orig.convert("RGBA")
-        orig_pix = orig.load()
-        self.pixels = orig_pix
-    def get(self,x,y):
-        return self.pixels[x,y]
-
-# hold orig pixels
-o = O()
-
 # create a new image
 orig = Image.open("ORIGINAL.png")
+orig = Image.open("ORIGINAL.png")
+orig = orig.convert("RGBA")
+orig_pix = orig.load()
+
 output_image = Image.new(orig.mode,(W,H))
 draw = ImageDraw.Draw(output_image)
 
@@ -37,7 +28,8 @@ for i in range(500):
     diam = random.randint(0,45)
 
     # get orig colors at the point we picked
-    orig_colors = o.get(x,y)
+    # orig_colors = o.get(x,y)
+    orig_colors = orig_pix[x,y]
     # cs = "rgb({},{},{})".format(orig_colors[0],orig_colors[1],orig_colors[2])
     # pick a random alpha
     alpha = random.randint(0,255-1)
