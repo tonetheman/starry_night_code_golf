@@ -28,9 +28,8 @@ for i in range(500):
     diam = random.randint(0,45)
 
     # get orig colors at the point we picked
-    # orig_colors = o.get(x,y)
     orig_colors = orig_pix[x,y]
-    # cs = "rgb({},{},{})".format(orig_colors[0],orig_colors[1],orig_colors[2])
+    
     # pick a random alpha
     alpha = random.randint(0,255-1)
     color = (orig_colors[0],orig_colors[1],orig_colors[2],alpha)
